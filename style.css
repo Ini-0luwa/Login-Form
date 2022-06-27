@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    margin: 0;
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(to right, darkgreen, #069c06 );
+}
+.container{
+    padding: 70px 100px;
+}
+.bar{
+    width: 200px;
+    height: 30px;
+    border-radius: 9px;
+    box-shadow: 0 0 3px black;
+    background: rgb(148, 147, 147);
+}
+.percent{
+    height: 100%;
+    width: 60%;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    color: white;
+    background: linear-gradient(to left, brown, rgb(31, 1, 1));
+    box-shadow: 0 0 3px black;
+    animation: percent linear 2s;
+}
+@keyframes percent {
+    from{
+        width: 0%;
+    }
+    to{
+        width: 60%;
+    }
+}
+.modal{
+    height: 100vh;
+    width: 100%;
+    background: rgba(77, 77, 77,0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    transition: all .3s ease;
+    visibility: hidden; 
+    opacity: 0;
+}
+.modalBox{
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    background-color: white;
+    border-radius: 7px;
+}
+.modal:target{
+    opacity: 1;
+    visibility: visible;
+}
+.form{
+    height: 40px;
+    width: 300px;
+    position: relative;
+    /* background-color: red; */
+}
+.form input{
+    color: blue;
+    letter-spacing: 2px;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: 2px black solid;
+    border-radius: 7px;
+    font-size: 1.3rem;
+    padding-left: 15px;
+}
+.label-name{
+    transition: all .3s ease;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: #069c06; */
+    pointer-events: none;
+}
+.content{
+    transition: all .3s ease;
+    position: absolute;
+    top: 11px;
+    left: 15px;
+}
+.form input:focus + .label-name .content, .form input:valid + .label-name .content{
+    color: blue;
+    font-size: 13px;
+    padding: 2px;
+    background-color: white;
+    top: -11px;
+}
+.form input:focus + .label-name, .form input:valid + .label-name{
+    border: 2px solid blue;
+    border-radius: 7px;
+}
